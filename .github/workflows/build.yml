@@ -19,8 +19,9 @@ jobs:
 
       - name: build dist
         run: |
-          npm install
-          npm build
+          npm install -g yarn
+          yarn install
+          yarn build
       - name: upload files to OSS
         uses: fangbinwei/aliyun-oss-website-action@v1
         with:
