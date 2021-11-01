@@ -1,33 +1,30 @@
 import React, { Component } from 'react'
-import {Menu} from 'antd'
-import 'antd/dist/antd.css'
-import {BrowserRouter,Link,Route} from 'react-router-dom'
-import Login from './Pages/Login/Login.jsx'
-export default class App extends Component {
+import Out from './Pages/Out/out.jsx'
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.jsx'
+import Markdown from './Pages/Markdown/markdown.jsx'
+import  './App.css'
+import { Route,Redirect,Switch} from 'react-router-dom'
+
+class App extends Component {
+  componentDidMount(){
+  }
+  
   render() {
+    
     return (
       <div>
-        <Menu  mode="horizontal">
-          <Menu.Item key="mail" >
-            Navigation One
-          </Menu.Item>
-          <Menu.Item key="app"  >
-            Navigation Two
-          </Menu.Item>
-          <Menu.Item key="alipay">
-            <BrowserRouter>
-              <Link to='/login'>
-                登录
-              </Link>
-            </BrowserRouter>
-          </Menu.Item>
-        </Menu>
-        <div className='content'>
-          <BrowserRouter>
-            <Route path='/login' component={Login}></Route>
-          </BrowserRouter>
-        </div>
+        <Switch>
+          <ErrorBoundary>
+            <Route path='/out' component={Out}></Route>
+            <Route path='/markdown' component={Markdown}></Route>
+            <Redirect to='/out'></Redirect>
+          </ErrorBoundary>
+        </Switch>
       </div>
     )
   }
+  navTo=(e)=>{
+    this.props.history.push(`/${e.key}`)
+  }
 }
+export default App

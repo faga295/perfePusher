@@ -63,6 +63,9 @@ const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
+const lessRegex = /\.less$/
+const lessModuleRegex=/\.module\.less$/
+
 
 const hasJsxRuntime = (() => {
   if (process.env.DISABLE_NEW_JSX_TRANSFORM === 'true') {
@@ -77,6 +80,7 @@ const hasJsxRuntime = (() => {
   }
 })();
 
+const px2rem=require('postcss-px2rem')
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
 module.exports = function (webpackEnv) {
@@ -129,6 +133,7 @@ module.exports = function (webpackEnv) {
               },
               stage: 3,
             }),
+            px2rem({remUnit:60}),
             // Adds PostCSS Normalize as the reset css with default options,
             // so that it honors browserslist config in package.json
             // which in turn let's users customize the target behavior as per their needs.
@@ -389,6 +394,10 @@ module.exports = function (webpackEnv) {
                 name: 'static/media/[name].[hash:8].[ext]',
               },
             },
+            {
+              test:/\.md$/,
+              use:'raw-loader'
+            },
             // Process application JS with Babel.
             // The preset includes JSX, Flow, TypeScript, and some ESnext features.
             {
@@ -533,6 +542,18 @@ module.exports = function (webpackEnv) {
                 },
                 'sass-loader'
               ),
+            },
+            {
+              test:lessRegex,
+              exclude:lessModuleRegex,
+              use:getStyleLoaders({
+                importLoaders:1,
+                modules:true,
+                sourceMap: isEnvProduction && shouldUseSourceMap
+                },
+                'less-loader',
+              ),
+              sideEffects:true
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.
             // When you `import` an asset, you get its (virtual) filename.

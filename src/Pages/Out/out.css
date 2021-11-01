@@ -1,0 +1,93 @@
+body {
+  background-color: #fafafa;
+}
+.header {
+  position: relative;
+  background-color: white;
+  border-bottom: 1.5px solid #e9e8e8;
+}
+.header .ant-menu {
+  border: none;
+  width: 500px;
+  margin-left: 100px;
+  height: 60px;
+  line-height: 60px;
+}
+.header .ant-menu-item {
+  font-size: 18px;
+}
+.header .signIn {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  height: 60px;
+  line-height: 60px;
+  font-size: 16px;
+}
+.header .signIn a {
+  color: black;
+}
+.header .signIn img {
+  width: 40px;
+  height: 40px;
+}
+.header .userInfo {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  height: 65px;
+  width: 80px;
+}
+.header .userInfo .headImgUrl {
+  position: absolute;
+  right: 20px;
+  top: 13px;
+  border-radius: 50%;
+}
+.header .userInfo .headImgUrl img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.header .userInfo .nickname {
+  position: absolute;
+  right: 65px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 16px;
+}
+.header .userInfo .userTools {
+  position: absolute;
+  right: 0;
+  top: 65px;
+  width: 115px;
+  height: 80px;
+  border-radius: 10px;
+  background-color: white ;
+}
+.header .userInfo .userTools .signOut {
+  display: block;
+  color: black;
+  width: 100px;
+  margin: 20px auto;
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 10px;
+}
+.header .userInfo .userTools .signOut img {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+.header .userInfo .userTools .signOut:hover {
+  background-color: whitesmoke;
+}
+.content {
+  width: 100%;
+}
+.spin {
+  margin-top: 50vh;
+  transform: translateX(-50%, -50%);
+  margin-left: 50vw;
+}

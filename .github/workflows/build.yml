@@ -1,0 +1,31 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v1
+
+      - name: install node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: build dist
+        run: |
+          npm install
+          npm build
+      - name: upload files to OSS
+        uses: fangbinwei/aliyun-oss-website-action@v1
+        with:
+          accessKeyId: ${{ secrets.ACCESS_KEY_ID }}
+          accessKeySecret: ${{ secrets.ACCESS_KEY_SECRET }}
+          bucket: perfect-pusher
+          endpoint: https://oss-cn-hangzhou.aliyuncs.com
+          folder: ./build

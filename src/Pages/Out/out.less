@@ -1,0 +1,95 @@
+body{
+    background-color: rgb(250, 250, 250);
+}
+.header{
+    position: relative;
+    background-color: white;
+    border-bottom: 1.5px solid rgb(233, 232, 232);
+    .ant-menu{
+        border:none;
+        width: 500px;
+        margin-left: 100px;
+        height: 60px;
+        line-height: 60px;
+    }
+    .ant-menu-item{
+        font-size: 18px;
+    }
+    .signIn{
+        position: absolute;
+        right: 20px;
+        top:0;
+        height: 60px;
+        line-height: 60px;
+        font-size:16px;
+        a{
+            color:black
+        }
+        img{
+            width: 40px;
+            height: 40px;
+        }
+    }
+    .userInfo{
+        position: absolute;
+        right: 20px;
+        top:0;
+        height: 65px;
+        width: 80px;
+        .headImgUrl{
+            position: absolute;
+                right: 20px;
+                top:13px;
+                border-radius: 50%;
+            img{
+                width:35px;
+                height: 35px;
+                border-radius: 50%;
+                cursor:pointer;
+            }
+        }
+        .nickname{
+            position: absolute;
+            right: 65px;
+            height: 60px;
+            line-height: 60px;
+            font-size: 16px;
+        }
+        .userTools{
+            position: absolute;
+            right: 0;
+            top:65px;
+            width: 115px;
+            height: 80px;
+            border-radius: 10px;
+            background-color:white ;
+            .signOut{
+                display: block;
+                color: black;
+                width: 100px;
+                margin:20px auto;
+                border-radius: 10px;
+                font-size: 18px;
+                padding: 10px;
+                img{
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 15px;
+                }
+                &:hover{
+                    background-color: whitesmoke;
+                }
+                
+            }
+            
+        }
+    }
+}
+.content{
+    width: 100%;
+}
+.spin{
+    margin-top:50vh;
+    transform: translateX(-50%,-50%);
+    margin-left: 50vw;
+}
