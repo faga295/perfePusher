@@ -31,7 +31,7 @@ export default class Login extends Component {
                 qrcode
             })
         },180000)
-        this.ws=new WebSocket(`ws://49.234.111.177:14000/mp/login/socket/${ticket}`)
+        this.ws=new WebSocket(`ws://114.115.146.146:14000/mp/login/socket/${ticket}`)
         this.ws.onclose=()=>{
             console.log('连接关闭')
         }

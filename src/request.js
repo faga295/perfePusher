@@ -3,7 +3,7 @@ import {message} from 'antd'
 const CancelToken=axios.CancelToken
 let cancel;
 const request=axios.create({
-    baseURL:'http://49.234.111.177:14000',
+    baseURL:'http://114.115.146.146:14000',
     timeout:3000
 })
 request.interceptors.request.use(config=>{
