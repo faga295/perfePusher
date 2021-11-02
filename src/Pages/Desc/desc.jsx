@@ -7,7 +7,7 @@ export default class Send extends Component {
     render() {
         return (
             <div>
-                <h1>desc</h1>
+                <h1>敬请期待...</h1>
             </div>
         )
     }
