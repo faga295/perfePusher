@@ -23,10 +23,12 @@ jobs:
           yarn install
           yarn build
       - name: upload files to OSS
-        uses: fangbinwei/aliyun-oss-website-action@v1
+        id: upload_to_oss
+        uses: royalrover/workbench-oss@master
         with:
-          accessKeyId: ${{ secrets.ACCESS_KEY_ID }}
-          accessKeySecret: ${{ secrets.ACCESS_KEY_SECRET }}
-          bucket: perfect-pusher
-          endpoint: https://oss-cn-hangzhou.aliyuncs.com
-          folder: ./build
+          ACCESS_KEY: ${{ secrets.ACCESS_KEY_ID }}
+          ACCESS_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
+          OSS_BUCKET: perfect-pusher
+          OSS_REGION: oss-cn-beijing
+          UPLOAD_PATH: ./build
+          OSS_PATH: /

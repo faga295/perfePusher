@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Input,Divider,Collapse,Form,Switch,Button,Modal,message,Row,Col } from 'antd'
 import './setting.css'
-import request from '../../request'
+import {request} from '../../request'
 const {Panel}=Collapse
 export default class setting extends Component {
     state={

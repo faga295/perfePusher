@@ -28,4 +28,7 @@ request.interceptors.response.use(res=>{
 },error=>{
     
 })
-export default request
+const subscribeReq=axios.create({
+    baseURL:'https://localhost:3000/'
+})
+export  {request,subscribeReq}

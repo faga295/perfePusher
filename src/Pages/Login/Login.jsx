@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {message, notification} from 'antd'
 import 'antd/dist/antd.css'
 import './Login.css'
-import request from '../../request'
+import {request} from '../../request'
 import Context from '../Out/context'
 export default class Login extends Component {
     state={
