@@ -22,13 +22,14 @@ jobs:
           npm install -g yarn
           yarn install
           yarn build
+      - name: get ak
+        run: echo ${{ACCESS_KEY_ID}}
+        
       - name: upload files to OSS
-        id: upload_to_oss
-        uses: royalrover/workbench-oss@master
+        uses: fangbinwei/aliyun-oss-website-action@v1
         with:
-          ACCESS_KEY: ${{ secrets.ACCESS_KEY_ID }}
-          ACCESS_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
-          OSS_BUCKET: perfect-pusher
-          OSS_REGION: oss-cn-beijing
-          UPLOAD_PATH: ./build
-          OSS_PATH: /
+          accessKeyId: ${{ secrets.ACCESS_KEY_ID }}
+          accessKeySecret: ${{ secrets.ACCESS_KEY_SECRET }}
+          bucket: perfect-pusher
+          endpoint: https://oss-cn-hangzhou.aliyuncs.com
+          folder: ./build
