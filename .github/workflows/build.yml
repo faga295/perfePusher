@@ -21,10 +21,9 @@ jobs:
         run: |
           npm install -g yarn
           yarn install
-          yarn build
-      - name: get ak
-        run: echo ${{ACCESS_KEY_ID}}
-        
+          yarn uninstall less-loader
+          yarn install less-loader@6
+
       - name: upload files to OSS
         uses: fangbinwei/aliyun-oss-website-action@v1
         with:
